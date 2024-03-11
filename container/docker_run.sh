@@ -59,6 +59,7 @@ mkdir -p /home/${USER}/.config/pudb
 mkdir -p /home/${USER}/.config/matplotlib
 mkdir -p /home/${USER}/.config/wandb
 mkdir -p /home/${USER}/.local/share/wandb
+mkdir -p /home/${USER}/.cupy
 mkdir -p /home/${USER}/wandb
 touch /home/${USER}/.netrc
 touch /${home2}/${USER}/storage/${REPO_NAME}/.bash_history
@@ -86,6 +87,7 @@ if [[ "${CONTAINER_ID}" ]]; then
         -v /home/${USER}/.local/share/wandb:/home/${USER}/.local/share/wandb \
         -v /home/${USER}/.netrc:/home/${USER}/.netrc \
         -v /home/${USER}/.cache:/home/${USER}/.cache \
+        -v /home/${USER}/.cupy:/home/${USER}/.cupy \
         -v /${home2}/${USER}/storage/${REPO_NAME}/.bash_history:/home/${USER}/.bash_history \
         -v /mnt/g2big/shared:/mnt/g2big/shared \
         -v /home/${USER}/cache:/cache \

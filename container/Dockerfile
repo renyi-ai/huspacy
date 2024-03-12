@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.1.1-devel-ubuntu20.04
+FROM nvidia/cuda:11.2.2-devel-ubuntu20.04
 ARG MODEL
 
 ENV PYTHONPATH=/workspace
@@ -19,28 +19,32 @@ RUN python3 -m pip install --upgrade pip setuptools wheel
 
 RUN pip install poetry
 
-RUN mkdir /installation
-COPY ./ /installation/
+ENV POETRY_NO_INTERACTION=1 \
+    POETRY_VIRTUALENVS_IN_PROJECT=1 \
+    POETRY_VIRTUALENVS_CREATE=1 \
+    POETRY_CACHE_DIR=/tmp/poetry_cache
 
-RUN cd /installation/$MODEL && poetry update
+RUN mkdir /install
+WORKDIR /install
 
-RUN cd /installation/$MODEL && poetry install
+COPY ./$MODEL/pyproject.toml ./$MODEL/poetry.lock ./
 
-RUN cd /installation/$MODEL && poetry run python -m pip install torch==1.10.2+cu111 -f https://download.pytorch.org/whl/torch_stable.html
-RUN cd /installation/$MODEL && poetry run pip install -U pip setuptools wheel
+RUN touch README.md
 
-RUN chmod -R 777 /installation
+RUN poetry install --no-root
+
+RUN poetry run python -m pip install torch==1.10.2+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+RUN poetry run pip install -U pip setuptools wheel
 
 # Inserting the script into the Dockerfile
 RUN echo '#!/bin/bash' > /run_spacy_commands.sh \
     && echo "cd /workspace/$MODEL" >> /run_spacy_commands.sh \
-    && echo "source /installation/hu_core_news_trf/.venv/bin/activate" >> /run_spacy_commands.sh \
+    && echo "source /install/.venv/bin/activate" >> /run_spacy_commands.sh \
     && echo 'spacy project assets' >> /run_spacy_commands.sh \
     && echo 'spacy project run all' >> /run_spacy_commands.sh \
     && chmod +x /run_spacy_commands.sh \
-    && chmod -R 777 /installation
 
-RUN echo "source /installation/hu_core_news_trf/.venv/bin/activate" >> /activate.sh \
+RUN echo "source /install/.venv/bin/activate" >> /activate.sh \
     && chmod +x /activate.sh
 
 WORKDIR /workspace/$MODEL

@@ -41,7 +41,7 @@ RUN echo '#!/bin/bash' > /run_spacy_commands.sh \
 
 ENV GPU=4
 
-WORKDIR /workspace
+WORKDIR /workspace/$MODEL
 
 COPY container/entry.sh /entry.sh
 RUN chmod +x /entry.sh

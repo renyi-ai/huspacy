@@ -22,6 +22,8 @@ RUN pip install poetry
 RUN mkdir /installation
 COPY ./ /installation/
 
+RUN cd /installation/$MODEL && poetry update
+
 RUN cd /installation/$MODEL && poetry install
 
 RUN cd /installation/$MODEL && poetry run python -m pip install torch==1.10.2+cu111 -f https://download.pytorch.org/whl/torch_stable.html
@@ -31,7 +33,7 @@ RUN chmod -R 777 /installation
 
 # Inserting the script into the Dockerfile
 RUN echo '#!/bin/bash' > /run_spacy_commands.sh \
-    && echo "cd /workspace/${MODEL}" >> /run_spacy_commands.sh \
+    && echo "cd /workspace/$MODEL" >> /run_spacy_commands.sh \
     && echo 'poetry run spacy project assets' >> /run_spacy_commands.sh \
     && echo 'poetry run spacy project run all' >> /run_spacy_commands.sh \
     && chmod +x /run_spacy_commands.sh \

@@ -41,7 +41,7 @@ RUN echo '#!/bin/bash' > /run_spacy_commands.sh \
     && chmod -R 777 /installation
 
 RUN echo "source /installation/hu_core_news_trf/.venv/bin/activate" >> /activate.sh \
-    && chmod +x /activate.sh \
+    && chmod +x /activate.sh
 
 WORKDIR /workspace/$MODEL
 

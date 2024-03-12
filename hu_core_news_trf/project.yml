@@ -17,10 +17,10 @@ vars:
   models_path: models
   packages_path: packages
 
-  raw_data_path: /storage/data/raw
-  processed_data_path: /storage/data/processed
-  external_data_path: /storage/data/external
-  result_data_path: /storage/data/result
+  raw_data_path: /storage/${core_package_name}/data/raw
+  processed_data_path: /storage/${core_package_name}/data/processed
+  external_data_path: /storage/${core_package_name}/data/external
+  result_data_path: /storage/${core_package_name}/data/result
 
   treebank: UD_Hungarian-Szeged
   train_name: hu_szeged-ud-train
@@ -48,7 +48,7 @@ vars:
   gpu: ${env.GPU}
 
 # These are the directories that the project needs. The project CLI will make sure that they always exist.
-directories: [configs, models, packages, data/raw, data/processed, data/external, data/result]
+directories: [configs, models, packages, ${raw_data_path}, ${processed_data_path}, ${external_data_path}, ${result_data_path}]
 
 assets:
   # Universal dependencies

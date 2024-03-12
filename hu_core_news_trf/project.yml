@@ -48,7 +48,7 @@ vars:
   gpu: ${env.GPU}
 
 # These are the directories that the project needs. The project CLI will make sure that they always exist.
-directories: [configs, models, packages, ${raw_data_path}, ${processed_data_path}, ${external_data_path}, ${result_data_path}]
+directories: [configs, models, packages, data/raw, data/processed, data/external, data/result]
 
 assets:
   # Universal dependencies

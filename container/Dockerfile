@@ -31,11 +31,13 @@ RUN chmod -R 777 /installation
 
 # Inserting the script into the Dockerfile
 RUN echo '#!/bin/bash' > /run_spacy_commands.sh \
-    && echo 'cd /installation/${MODEL}' >> /run_spacy_commands.sh \
+    && echo "cd /workspace/${MODEL}" >> /run_spacy_commands.sh \
     && echo 'poetry run spacy project assets' >> /run_spacy_commands.sh \
     && echo 'poetry run spacy project run all' >> /run_spacy_commands.sh \
     && chmod +x /run_spacy_commands.sh \
     && chmod -R 777 /installation
+
+ENV GPU=4
 
 WORKDIR /workspace
 

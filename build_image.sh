@@ -5,5 +5,5 @@ source container/.dockerenv
 # DOCKER_BUILDKIT=0 docker build --rm -t ${IMAGE_NAME} . -f container/Dockerfile --build-arg MODEL=${MODEL}
 docker build --rm -t ${IMAGE_NAME} . -f container/Dockerfile --build-arg MODEL=${MODEL}
 
-cd container && ./docker_run.sh -i -c "cd /installation/$MODEL && poetry run spacy project assets && poetry run spacy project run all"
+cd container && ./docker_run.sh -i -c "bash /run_spacy_commands.sh"
 

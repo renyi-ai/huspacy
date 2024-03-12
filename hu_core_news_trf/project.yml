@@ -17,10 +17,10 @@ vars:
   models_path: models
   packages_path: packages
 
-  raw_data_path: data/raw
-  processed_data_path: data/processed
-  external_data_path: data/external
-  result_data_path: data/result
+  raw_data_path: /storage/data/raw
+  processed_data_path: /storage/data/processed
+  external_data_path: /storage/data/external
+  result_data_path: /storage/data/result
 
   treebank: UD_Hungarian-Szeged
   train_name: hu_szeged-ud-train

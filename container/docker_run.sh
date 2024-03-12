@@ -39,7 +39,7 @@ do
         e) home2='home'
            shared_data_folder_params='';;
         c) command=${OPTARG};;
-        g) gpu_params="-e CUDA_VISIBLE_DEVICES=${OPTARG}";;
+        g) gpu_params="-e GPU=${OPTARG}";;
         i) it="-it";;
         p) ssh_params="-v `pwd`/entry_ssh.sh:/entry.sh -p ${OPTARG}:22";;
         j) jupy_params="-v /home/${USER}/.local/:/home/${USER}/.local -p ${OPTARG}:8888";;

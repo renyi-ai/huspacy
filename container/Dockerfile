@@ -39,8 +39,6 @@ RUN echo '#!/bin/bash' > /run_spacy_commands.sh \
     && chmod +x /run_spacy_commands.sh \
     && chmod -R 777 /installation
 
-ENV GPU=4
-
 WORKDIR /workspace/$MODEL
 
 COPY container/entry.sh /entry.sh

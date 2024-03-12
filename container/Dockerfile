@@ -42,7 +42,7 @@ RUN echo '#!/bin/bash' > /run_spacy_commands.sh \
     && echo "source /install/.venv/bin/activate" >> /run_spacy_commands.sh \
     && echo 'spacy project assets' >> /run_spacy_commands.sh \
     && echo 'spacy project run all' >> /run_spacy_commands.sh \
-    && chmod +x /run_spacy_commands.sh \
+    && chmod +x /run_spacy_commands.sh
 
 RUN echo "source /install/.venv/bin/activate" >> /activate.sh \
     && chmod +x /activate.sh

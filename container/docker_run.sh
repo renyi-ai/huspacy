@@ -52,10 +52,12 @@ mkdir -p /home/${USER}/.pycharm_helpers
 mkdir -p /home/${USER}/.cache
 mkdir -p /home/${USER}/cache
 mkdir -p /${home2}/${USER}/storage/data
-mkdir -p /${home2}/${USER}/storage/${MODEL}/data/raw
-mkdir -p /${home2}/${USER}/storage/${MODEL}/data/processed
-mkdir -p /${home2}/${USER}/storage/${MODEL}/data/external
-mkdir -p /${home2}/${USER}/storage/${MODEL}/data/result
+mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/raw
+mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/processed
+mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/external
+mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/result
+mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/models
+mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/packages
 mkdir -p /${home2}/${USER}/storage/${REPO_NAME}/cache
 mkdir -p /${home2}/${USER}/storage/${REPO_NAME}/logs
 mkdir -p /${home2}/${USER}/storage/${REPO_NAME}/finetune/data

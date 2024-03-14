@@ -14,13 +14,13 @@ vars:
   # Following spaCy's convention: https://spacy.io/models#model-versioning
   package_version: 3.7.0
 
-  models_path: models
-  packages_path: packages
+  models_path: /storage/huspacy/${package_name}/models
+  packages_path: /storage/huspacy/${package_name}/packages
 
-  raw_data_path: data/raw
-  processed_data_path: data/processed
-  external_data_path: data/external
-  result_data_path: data/result
+  raw_data_path: /storage/huspacy/${package_name}/data/raw
+  processed_data_path: /storage/huspacy/${package_name}/data/processed
+  external_data_path: /storage/huspacy/${package_name}/data/external
+  result_data_path: /storage/huspacy/${package_name}/data/result
 
   treebank: UD_Hungarian-Szeged
   train_name: hu_szeged-ud-train

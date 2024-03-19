@@ -56,8 +56,8 @@ mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/raw
 mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/processed
 mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/external
 mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/result
-mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/models
-mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/data/packages
+mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/models
+mkdir -p /${home2}/${USER}/storage/huspacy/${MODEL}/packages
 mkdir -p /${home2}/${USER}/storage/${REPO_NAME}/cache
 mkdir -p /${home2}/${USER}/storage/${REPO_NAME}/logs
 mkdir -p /${home2}/${USER}/storage/${REPO_NAME}/finetune/data

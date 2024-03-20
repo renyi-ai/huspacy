@@ -36,6 +36,8 @@ RUN poetry install --no-root
 RUN poetry run python -m pip install torch==1.10.2+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 RUN poetry run pip install -U pip setuptools wheel
 
+RUN poetry run pip install reportlab
+
 # Inserting the script into the Dockerfile
 RUN echo '#!/bin/bash' > /run_spacy_commands.sh \
     && echo "cd /workspace/$MODEL" >> /run_spacy_commands.sh \

@@ -113,7 +113,7 @@ def test(
     text: str = "Kulka János is szerepel az új szivárványcsaládos kampányban.", model_name: str = "hu_core_news_lg"
 ):
     nlp = load_pipeline(use_gpu=False, with_ner=True, model_name=model_name)
-    nlp.add_pipe("conll_formatter")
+    # nlp.add_pipe("conll_formatter")
 
     with Timer() as t:
         print(nlp(text)._.conll_str)
